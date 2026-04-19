@@ -353,8 +353,54 @@
         .about-detail-card h4 { color: #FFFFFF; margin-bottom: 0.75rem; font-size: 1.4rem; font-weight: 600; z-index: 2; }
         .about-detail-card p { color: #B8C7D9; line-height: 1.6; z-index: 2; }
 
-        .about-stats-row { display: flex; justify-content: space-around; margin: 4rem 0 2.5rem; padding: 2.5rem 0; border-top: 1px solid rgba(42, 82, 122, 0.5); border-bottom: 1px solid rgba(42, 82, 122, 0.5); }
-        .about-stat .number { font-size: 3rem; font-weight: 800; background: linear-gradient(145deg, #6EB5FF, #0A66C2); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        /* ===== ANIMATED STATS ROW ===== */
+        .about-stats-row { 
+            display: flex; 
+            justify-content: space-around; 
+            margin: 4rem 0 2.5rem; 
+            padding: 2.5rem 0; 
+            border-top: 1px solid rgba(42, 82, 122, 0.5); 
+            border-bottom: 1px solid rgba(42, 82, 122, 0.5);
+        }
+        
+        .about-stat { 
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-stat:hover {
+            transform: translateY(-5px);
+        }
+        
+        .about-stat .number { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            background: linear-gradient(145deg, #6EB5FF, #0A66C2); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent;
+            display: inline-block;
+            min-width: 120px;
+        }
+        
+        .about-stat .label { 
+            color: #B0C4DE;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        
+        /* Counter animation pulse effect while counting */
+        @keyframes countPulse {
+            0% { opacity: 0.7; text-shadow: 0 0 0px rgba(110, 181, 255, 0); }
+            100% { opacity: 1; text-shadow: 0 0 8px rgba(110, 181, 255, 0.5); }
+        }
+        
+        .counting-active {
+            animation: countPulse 0.3s ease-out;
+        }
+        
         .pill-group { display: flex; gap: 15px; flex-wrap: wrap; margin: 2rem 0 1rem; justify-content: center; }
         .pill { background: rgba(20, 30, 44, 0.7); backdrop-filter: blur(8px); border: 1px solid rgba(58, 128, 255, 0.3); padding: 10px 28px; border-radius: 60px; color: #C5E0FF; transition: all 0.3s; }
         .pill:hover { background: var(--primary); color: white; transform: translateY(-2px); }
@@ -487,6 +533,7 @@
             .about-detail-grid { grid-template-columns: 1fr; }
             .about-stats-row { flex-wrap: wrap; gap: 2rem; }
             .footer-grid { grid-template-columns: 1fr; }
+            .about-stat .number { min-width: 100px; font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -520,7 +567,6 @@
         <div class="about-intro" data-aos="fade-left">
             <p><strong style="color: var(--primary-glow); font-size: 1.5rem;">TOMERCON CONSULTANCY</strong> provides structured business strategies focused on execution and measurable growth.</p>
             
-            <!-- Additional 4-5 lines without a box - clean text -->
             <div class="about-extra-text">
                 <p>Our approach bridges the critical gap between strategic vision and operational reality, ensuring that every recommendation comes with a clear implementation roadmap. We specialize in transforming complex business challenges into actionable frameworks that drive sustainable growth.</p>
                 <p>From market entry strategies to operational excellence, our methodology emphasizes data-driven decision making and agile execution. With a client-first philosophy, we embed ourselves in your journey—serving not just as advisors but as dedicated partners committed to achieving tangible outcomes.</p>
@@ -577,19 +623,26 @@
             <div class="about-detail-card"> <i class="fas fa-globe-asia"></i> <h4>Global Reach</h4> <p>With partners and clients across India, North America, Europe, and Asia-Pacific.</p> </div>
         </div>
 
-        <div class="about-stats-row" data-aos="fade-up">
-            <div class="about-stat"> <div class="number">150+</div> <div class="label">Ventures Guided</div> </div>
-            <div class="about-stat"> <div class="number">12+</div> <div class="label">Industries Served</div> </div>
-            <div class="about-stat"> <div class="number">87%</div> <div class="label">Growth Efficiency</div> </div>
-            <div class="about-stat"> <div class="number">6+</div> <div class="label">Years of Excellence</div> </div>
+        <!-- ANIMATED STATS ROW: Numbers count from 0 to target when visible -->
+        <div class="about-stats-row" id="statsRow" data-aos="fade-up">
+            <div class="about-stat">
+                <div class="number" id="stat1" data-target="150">0</div>
+                <div class="label">Ventures Guided</div>
+            </div>
+            <div class="about-stat">
+                <div class="number" id="stat2" data-target="12">0</div>
+                <div class="label">Industries Served</div>
+            </div>
+            <div class="about-stat">
+                <div class="number" id="stat3" data-target="87">0</div>
+                <div class="label">Growth Efficiency</div>
+            </div>
+            <div class="about-stat">
+                <div class="number" id="stat4" data-target="6">0</div>
+                <div class="label">Years of Excellence</div>
+            </div>
         </div>
-
-        <div class="pill-group" data-aos="fade-up" data-aos-delay="150">
-            <span class="pill"><i class="fas fa-chart-simple"></i> Data-led decisions</span>
-            <span class="pill"><i class="fas fa-rocket"></i> Execution guarantee</span>
-            <span class="pill"><i class="fas fa-handshake"></i> Client-first approach</span>
-            <span class="pill"><i class="fas fa-bolt"></i> Agility & Impact</span>
-        </div>
+        
     </div>
 </section>
 
@@ -633,20 +686,107 @@
 <script>
     AOS.init({ duration: 800, once: true });
 
+    // Partner card hover interactions
     (function() {
         const card1 = document.getElementById('partnerCard1');
         const card2 = document.getElementById('partnerCard2');
         
-        card1.addEventListener('mouseenter', function() {
-            card1.classList.add('details-visible');
-            card2.classList.remove('details-visible');
+        if(card1 && card2) {
+            card1.addEventListener('mouseenter', function() {
+                card1.classList.add('details-visible');
+                card2.classList.remove('details-visible');
+            });
+            
+            card2.addEventListener('mouseenter', function() {
+                card2.classList.add('details-visible');
+                card1.classList.remove('details-visible');
+            });
+        }
+    })();
+
+    // ========== ANIMATED COUNTER FOR STATS ROW ==========
+    // Counter function that animates from 0 to target value
+    function animateCounter(element, targetValue, suffix = '') {
+        let current = 0;
+        const duration = 2000; // 2 seconds for smooth counting
+        const stepTime = 16; // ~60fps
+        const steps = duration / stepTime;
+        const increment = targetValue / steps;
+        
+        // Add a subtle pulse effect class while counting
+        element.classList.add('counting-active');
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= targetValue) {
+                // For decimal values like 87, we want integer display
+                if (Number.isInteger(targetValue)) {
+                    element.innerText = Math.floor(targetValue) + (suffix ? suffix : '');
+                } else {
+                    element.innerText = targetValue + (suffix ? suffix : '');
+                }
+                clearInterval(timer);
+                element.classList.remove('counting-active');
+                // Add a completion glow effect
+                element.style.textShadow = '0 0 12px rgba(110, 181, 255, 0.6)';
+                setTimeout(() => {
+                    element.style.textShadow = '';
+                }, 400);
+            } else {
+                if (Number.isInteger(targetValue)) {
+                    element.innerText = Math.floor(current) + (suffix ? suffix : '');
+                } else {
+                    element.innerText = current.toFixed(0) + (suffix ? suffix : '');
+                }
+            }
+        }, stepTime);
+    }
+
+    // Set up Intersection Observer to trigger counters when stats row becomes visible
+    const statsRow = document.getElementById('statsRow');
+    let countersTriggered = false;
+    
+    // Define stat elements and their target values (with optional suffixes)
+    const statsConfig = [
+        { element: document.getElementById('stat1'), target: 150, suffix: '+' },
+        { element: document.getElementById('stat2'), target: 12, suffix: '+' },
+        { element: document.getElementById('stat3'), target: 87, suffix: '%' },
+        { element: document.getElementById('stat4'), target: 6, suffix: '+' }
+    ];
+    
+    // Make sure all elements exist
+    const allStatsExist = statsConfig.every(stat => stat.element !== null);
+    
+    if (allStatsExist && statsRow) {
+        // Set initial values to 0 with proper suffix display
+        statsConfig.forEach(stat => {
+            if (stat.suffix) {
+                stat.element.innerText = '0' + stat.suffix;
+            } else {
+                stat.element.innerText = '0';
+            }
         });
         
-        card2.addEventListener('mouseenter', function() {
-            card2.classList.add('details-visible');
-            card1.classList.remove('details-visible');
-        });
-    })();
+        // Create observer to watch when stats row enters viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersTriggered) {
+                    countersTriggered = true;
+                    // Trigger all counters with slight delays for dramatic effect
+                    statsConfig.forEach((stat, index) => {
+                        setTimeout(() => {
+                            // Extract just the number for the counter function
+                            animateCounter(stat.element, stat.target, stat.suffix);
+                        }, index * 150); // staggered start: 0ms, 150ms, 300ms, 450ms
+                    });
+                    // Once triggered, unobserve to prevent re-triggering
+                    observer.unobserve(statsRow);
+                }
+            });
+        }, { threshold: 0.3 }); // Trigger when 30% of stats row is visible
+        
+        observer.observe(statsRow);
+    }
 </script>
 </body>
 </html>
