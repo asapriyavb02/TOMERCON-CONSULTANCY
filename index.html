@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TOMERCON CONSULTANCY | Strategy That Actually Works</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #EAEAEA;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --black-deep: #000000;
+            --black-rich: #0a0a0a;
+            --primary: #0A66C2;
+            --primary-glow: #3B8FDF;
+            --primary-dark: #004182;
+            --gray-muted: #B0B0B0;
+            --border-dim: #222222;
+            --card-bg: #0C0C0C;
+            --glass-bg: rgba(10, 10, 10, 0.75);
+            --sky-blue: #6EB5FF;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(10, 102, 194, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(10, 102, 194, 0.6); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { border-right-color: transparent; }
+            50% { border-right-color: transparent; } 
+        }
+
+        @keyframes servicesScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .typewriter-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right:transparent;
+            width: 0;
+            animation: typewriter 2.5s steps(28, end) forwards, blinkCursor 0.75s step-end infinite;
+        }
+
+        /* Floating background particles */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-bg span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        /* Card Hover Effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 40px -20px rgba(10, 102, 194, 0.4);
+        }
+
+        /* Icon Spin on Hover */
+        .icon-spin {
+            transition: transform 0.5s ease;
+        }
+
+        .icon-spin:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        /* ========== BASE STYLES ========== */
+        h1 {
+            font-size: 3.8rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            background: linear-gradient(135deg, #0A66C2 0%, #6EB5FF 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #AAAAAA;
+            max-width: 680px;
+            margin: 0.75rem auto 0;
+            letter-spacing: 0.2px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 14px 32px;
+            border-radius: 48px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            border: none;
+            box-shadow: 0 6px 14px rgba(10, 102, 194, 0.25);
+            font-size: 0.95rem;
+            letter-spacing: -0.2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-glow);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(10, 102, 194, 0.5);
+        }
+
+        .btn-primary i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ========== TRANSPARENT GLASS NAVBAR ========== */
+        nav {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.85) !important;  /* Changed from rgba(0, 0, 0, 0.3) */
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(10, 102, 194, 0.3);  /* Slightly more visible border */
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            padding: 5px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--sky-blue));
+            background-size: 200% 100%;
+            transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-glow);
+            text-shadow: 0 0 15px rgba(10, 102, 194, 0.8);
+        }
+
+        /* ========== HERO SECTION ========== */
+        /* ========== HERO SECTION - PARALLAX FIXED ========== */
+.hero {
+    padding: 3.5rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #1a2a3a;
+    background: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600') center center / cover no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 20, 40, 0.8);
+    isolation: isolate;
+    /* ADD THIS - Makes background fixed */
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+/* For mobile devices - fixed background can be problematic */
+@media (max-width: 850px) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+/* Also update all section-bg classes for consistent parallax effect if desired */
+.section-bg {
+    position: relative;
+    isolation: isolate;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* ADD THIS - Makes all section backgrounds fixed */
+    background-blend-mode: normal;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Mobile fix for all section backgrounds */
+@media (max-width: 850px) {
+    .section-bg {
+        background-attachment: fixed;
+    }
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(10,102,194,0.05) 50%, transparent 70%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(10,102,194,0.18) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-badge {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #9AC8FF;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(10, 102, 194, 0.6);
+            animation: pulse-glow 2s infinite;
+        }
+
+        .hero-content h1 {
+            font-size: 3.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4B9CD3 0%, #FFFFFF 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #F0F0F0;
+            max-width: 550px;
+            margin: 1.2rem 0 1.8rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #8CB9F0;
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(10, 102, 194, 0.35);
+            transition: all 0.3s;
+            cursor: default;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.2s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+
+        .stat-item:hover {
+            background: rgba(10, 102, 194, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-3px) scale(1.05);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(10, 102, 194, 0.3);
+        }
+
+        /* ========== COMPANY INFO ========== */
+        .company-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .info-card {
+            background: rgba(12, 12, 12, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid rgba(42, 42, 42, 0.5);
+            text-align: center;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            animation: scaleIn 0.6s ease-out both;
+        }
+
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: -1;
+        }
+
+        .info-card:nth-child(1)::before { background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .info-card:nth-child(2)::before { background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .info-card:nth-child(3)::before { background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+
+        .info-card:hover::before { opacity: 0.28; }
+        .info-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(17, 17, 17, 0.8);
+            box-shadow: 0 25px 35px -15px rgba(10, 102, 194, 0.3);
+        }
+
+        .info-card i {
+            font-size: 2.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover i {
+            transform: scale(1.2);
+            color: var(--sky-blue);
+            text-shadow: 0 0 20px rgba(110, 181, 255, 0.5);
+        }
+
+        .info-card h4 {
+            color: #6EB5FF;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .info-card p {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* ========== AUTO-SCROLL SERVICES MARQUEE ========== */
+        .services-horizontal-section {
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .services-scroll-container {
+            position: relative;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .services-marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 1.5rem 0.5rem 2rem;
+        }
+
+        .services-marquee-track {
+            display: inline-flex;
+            gap: 2rem;
+            animation: servicesScroll 30s linear infinite;
+        }
+
+        .services-marquee:hover .services-marquee-track {
+            animation-play-state: paused;
+        }
+
+        .service-card-scroll {
+            flex: 0 0 300px;
+            background: rgba(11, 11, 11, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(42, 42, 42, 0.5);
+            position: relative;
+            overflow: hidden;
+            min-height: 340px;
+            display: inline-flex;
+            flex-direction: column;
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1);
+            white-space: normal;
+            vertical-align: top;
+        }
+
+        /* Background images on hover */
+        .service-card-scroll::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 0;
+        }
+
+        .service-card-scroll:hover::before {
+            opacity: 0.25;
+        }
+
+        .service-card-scroll:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--primary);
+            background: rgba(15, 15, 15, 0.9);
+            box-shadow: 0 30px 40px -20px rgba(10, 102, 194, 0.4);
+        }
+
+        /* Individual background images - using classes for each card */
+        .service-card-scroll.bg1::before { background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card-scroll.bg2::before { background-image: url('https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card-scroll.bg3::before { background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card-scroll.bg4::before { background-image: url('https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card-scroll.bg5::before { background-image: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card-scroll.bg6::before { background-image: url('https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+
+        .service-icon-scroll {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .service-card-scroll:hover .service-icon-scroll {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--sky-blue);
+            text-shadow: 0 0 30px rgba(110, 181, 255, 0.6);
+        }
+
+        .service-card-scroll h3, .service-card-scroll p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== CLIENTS SECTION ========== */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .client-card {
+            background: rgba(12, 12, 12, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(42, 42, 42, 0.5);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            animation: scaleIn 0.6s ease-out both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-card:nth-child(1) { animation-delay: 0.1s; }
+        .client-card:nth-child(2) { animation-delay: 0.2s; }
+        .client-card:nth-child(3) { animation-delay: 0.3s; }
+        .client-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .client-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(10,102,194,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .client-card:hover::before { opacity: 1; }
+        .client-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 30px -10px rgba(10, 102, 194, 0.3);
+            background: rgba(17, 17, 17, 0.8);
+        }
+
+        .client-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            transition: all 0.4s ease;
+        }
+
+        .client-card:hover .client-icon {
+            transform: scale(1.15);
+            color: var(--sky-blue);
+        }
+
+        .client-card h4 {
+            color: #6EB5FF;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .clients-marquee {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(42, 42, 42, 0.5);
+            border-bottom: 1px solid rgba(42, 42, 42, 0.5);
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            background: linear-gradient(90deg, transparent, rgba(10,102,194,0.05), transparent);
+            backdrop-filter: blur(8px);
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-content i {
+            display: inline-block;
+            margin: 0 2rem;
+            color: #6EB5FF;
+            font-size: 2rem;
+            opacity: 0.7;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .marquee-content i:hover {
+            color: var(--primary);
+            opacity: 1;
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
+        }
+
+        .clients-marquee:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* ========== STRENGTHS SECTION ========== */
+        .dual-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .strength-box, .ecosystem-box {
+            flex: 1;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(42, 42, 42, 0.5);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .strength-box:hover, .ecosystem-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 35px -15px rgba(10, 102, 194, 0.3);
+            background: rgba(15, 15, 15, 0.8);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--primary-glow);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label i {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .strength-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-glow);
+            border-left: 4px solid var(--primary);
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .strength-box:hover .strength-text {
+            border-left-color: var(--sky-blue);
+            padding-left: 1.8rem;
+        }
+
+        .eco-highlight {
+            margin-top: 1.5rem;
+            background: rgba(17, 17, 17, 0.8);
+            border-radius: 1rem;
+            padding: 1rem 1.2rem;
+            border-left: 3px solid var(--primary);
+            color: #9AC8FF;
+            transition: all 0.3s;
+        }
+
+        .ecosystem-box:hover .eco-highlight {
+            border-left-color: var(--sky-blue);
+            background: rgba(26, 26, 26, 0.8);
+        }
+
+        .strength-img, .ecosystem-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .strength-box:hover .strength-img,
+        .ecosystem-box:hover .ecosystem-img {
+            transform: scale(1.05);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-cta {
+            background: transparent;
+            border-top: 1px solid rgba(10,102,194,0.15);
+            border-bottom: 1px solid rgba(10,102,194,0.15);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(12, 12, 12, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 1.8rem;
+            padding: 2rem 2rem;
+            border: 1px solid rgba(46, 46, 46, 0.5);
+            transition: all 0.4s;
+        }
+
+        .contact-info:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -10px rgba(10, 102, 194, 0.2);
+            background: rgba(12, 12, 12, 0.7);
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            color: #DDD;
+            transition: all 0.3s;
+        }
+
+        .contact-detail-item:hover {
+            transform: translateX(5px);
+            color: white;
+        }
+
+        .contact-detail-item i {
+            width: 28px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-top: 4px;
+            transition: all 0.3s;
+        }
+
+        .contact-detail-item:hover i {
+            color: var(--sky-blue);
+            transform: scale(1.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link, .contact-icon-link {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(8px);
+            width: 44px;
+            height: 44px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            border: 1px solid rgba(58, 58, 58, 0.5);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-icon-link {
+            width: auto;
+            padding: 0 18px;
+            gap: 8px;
+            font-size: 1rem;
+            background: rgba(10, 102, 194, 0.1);
+        }
+
+        .social-link::before, .contact-icon-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .contact-icon-link::before {
+            border-radius: 30px;
+        }
+
+        .social-link:hover::before, .contact-icon-link:hover::before {
+            transform: scale(1);
+        }
+
+        .social-link:hover, .contact-icon-link:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px -5px rgba(10, 102, 194, 0.4);
+        }
+
+        .contact-form {
+            flex: 1.5;
+            background: rgba(12, 12, 12, 0.5);
+            backdrop-filter: blur(12px);
+            border-radius: 1.8rem;
+            padding: 2rem 2rem;
+            border: 1px solid rgba(46, 46, 46, 0.5);
+            transition: all 0.4s;
+        }
+
+        .contact-form:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -10px rgba(10, 102, 194, 0.2);
+            background: rgba(12, 12, 12, 0.7);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: rgba(21, 21, 21, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 40px;
+            padding: 14px 20px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-group textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.2);
+            transform: scale(1.01);
+            background: rgba(21, 21, 21, 0.8);
+        }
+
+        .map-container {
+            margin-top: 2.2rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(46, 46, 46, 0.5);
+            height: 200px;
+            width: 100%;
+            transition: all 0.4s;
+        }
+
+        .map-container:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px -10px rgba(10, 102, 194, 0.3);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(0.3) contrast(1.1);
+            transition: all 0.4s;
+        }
+
+        .map-container:hover .map-iframe {
+            filter: grayscale(0) contrast(1.2);
+        }
+
+        .btn-light {
+            background: var(--primary);
+            color: white;
+            padding: 14px 38px;
+            border-radius: 48px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 8px 18px rgba(10,102,194,0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-light::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-light:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-light:hover {
+            background: var(--primary-glow);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(10,102,194,0.5);
+        }
+
+        .btn-light i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-light:hover i {
+            transform: translateX(5px) rotate(10deg);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: transparent !important; 
+            backdrop-filter: none; 
+            -webkit-backdrop-filter: none; 
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(10, 102, 194, 0.3);
+            color: #FFFFFF;
+            position: relative;
+            z-index: 2;
+            margin-top: 0;
+        }
+        
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .footer-brand h3 {
+            color: #0A66C2;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand p {
+            color: #EEEEEE;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links h4 {
+            color: #FFFFFF;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #FFFFFF;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+           text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Stronger text shadow for readability */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-glow);
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(10, 102, 194, 0.8);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(42, 42, 42, 0.5);
+            padding-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #DDDDDD;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-bottom span {
+            color: var(--primary);
+        }
+        
+        .footer-social {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+        
+        .footer-social .social-link {
+            width: 38px;
+            height: 38px;
+            font-size: 1.2rem;
+        }
+
+        /* Section Backgrounds */
+        .section-bg {
+            position: relative;
+            isolation: isolate;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .section-bg::before {
+            content: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+            display: none;
+        }
+
+        .why-tomercon-bg {
+            background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1600');
+        }
+
+        .core-services-bg {
+            background-image: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600');
+        }
+
+        .our-clients-bg {
+            background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600');
+        }
+
+        .strengths-bg {
+            background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1600');
+        }
+
+        .connect-bg {
+            background-image: url('https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            margin-bottom: 0;
+        }
+
+        .contact-cta .container:last-child {
+    margin-bottom: 0;
+}
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 850px) {
+            .container { padding: 0 24px; }
+            h1 { font-size: 2.6rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .hero-grid { flex-direction: column; text-align: center; }
+            .hero-stats { justify-content: center; }
+            .company-info-grid, .clients-grid, .footer-grid { grid-template-columns: 1fr; }
+            .dual-layout { flex-direction: column; }
+            .contact-grid { flex-direction: column; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .section-bg { background-attachment: fixed; }
+            .typewriter-text { white-space: normal; }
+            .hero { padding: 3rem 0 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating Background Particles -->
+<div class="floating-bg">
+    <span style="top: 10%; left: 5%; animation-delay: 0s;"></span>
+    <span style="top: 20%; left: 15%; animation-delay: 2s;"></span>
+    <span style="top: 30%; left: 85%; animation-delay: 4s;"></span>
+    <span style="top: 50%; left: 10%; animation-delay: 1s;"></span>
+    <span style="top: 60%; left: 90%; animation-delay: 3s;"></span>
+    <span style="top: 70%; left: 20%; animation-delay: 5s;"></span>
+    <span style="top: 80%; left: 75%; animation-delay: 2.5s;"></span>
+    <span style="top: 40%; left: 50%; animation-delay: 3.5s;"></span>
+    <span style="top: 90%; left: 40%; animation-delay: 1.5s;"></span>
+    <span style="top: 15%; left: 60%; animation-delay: 4.5s;"></span>
+</div>
+
+<nav>
+    <div class="container nav-container">
+        <div class="logo">TOMERCON CONSULTANCY</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="strength.html">Strengths</a></li>
+            <li><a href="connect.html">Connect</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-grid">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="900">
+            <div class="hero-badge">TOMERCON CONSULTANCY</div>
+            <h1>
+                <span class="gradient-text typewriter-text">Strategy That Actually Works</span>
+            </h1>
+            <p class="hero-desc">Execution-focused frameworks designed for real-world impact. We turn complexity into clarity and goals into measurable outcomes.</p>
+            <a href="services.html" class="btn-primary">Explore services <i class="fas fa-arrow-right"></i></a>
+            <div class="hero-stats">
+                <div class="stat-item"><i class="fas fa-chart-line"></i> 87% growth efficiency</div>
+                <div class="stat-item"><i class="fas fa-check-circle"></i> 150+ ventures guided</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY TOMERCON -->
+<section class="section-bg why-tomercon-bg" style="padding: 4rem 0;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Why TOMERCON?</h2>
+        </div>
+        <div class="company-info-grid">
+            <div class="info-card" data-aos="fade-up" data-aos-delay="0">
+                <i class="fas fa-bullseye icon-spin"></i>
+                <h4>Our Mission</h4>
+                <p>To bridge the gap between strategic vision and operational reality. We don't just plan—we execute, measure, and optimize for lasting success.</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-chart-bar icon-spin"></i>
+                <h4>Proven Track Record</h4>
+                <p>150+ ventures guided across 12+ industries. Our clients achieve 87% higher growth efficiency with our execution frameworks.</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-handshake icon-spin"></i>
+                <h4>Client-First Approach</h4>
+                <p>We embed ourselves in your journey. From diagnostics to implementation, we're partners in your measurable transformation.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p style="color: #6EB5FF; font-size: 1.05rem; font-weight: 500; max-width: 700px; margin: 0 auto; background: rgba(0,0,0,0.35); backdrop-filter: blur(4px); padding: 0.8rem 1.2rem; border-radius: 60px;">
+                <i class="fas fa-quote-left" style="margin-right: 8px; opacity: 0.7;"></i> 
+                Strategy without execution is just a wish. At TOMERCON, we make it reality.
+                <i class="fas fa-quote-right" style="margin-left: 8px; opacity: 0.7;"></i>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CORE SERVICES – AUTO-SCROLLING (6 cards) -->
+<section class="section-bg core-services-bg services-horizontal-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Core Services</h2>
+            <div class="section-subtitle">Precision consulting for every stage of your journey</div>
+        </div>
+
+        <div class="services-scroll-container" data-aos="fade-up">
+            <div class="services-marquee">
+                <div class="services-marquee-track">
+                    <!-- First set of 6 service cards -->
+                    <div class="service-card-scroll bg1">
+                        <div class="service-icon-scroll"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Business Strategy</h3>
+                        <p>Planning and structuring business models. We build resilient frameworks that align with market dynamics and long-term vision.</p>
+                    </div>
+                    <div class="service-card-scroll bg2">
+                        <div class="service-icon-scroll"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Startup Advisory</h3>
+                        <p>Guidance for new ventures. From validation to early traction, we help founders avoid pitfalls and scale intelligently.</p>
+                    </div>
+                    <div class="service-card-scroll bg3">
+                        <div class="service-icon-scroll"><i class="fas fa-chart-line"></i></div>
+                        <h3>Growth Planning</h3>
+                        <p>Scaling strategies for businesses. Custom growth architectures, operational leverage, and expansion roadmaps.</p>
+                    </div>
+                    <div class="service-card-scroll bg4">
+                        <div class="service-icon-scroll"><i class="fas fa-globe-americas"></i></div>
+                        <h3>Market Entry</h3>
+                        <p>Helping businesses enter new markets. Localization strategies, competitive landscaping, and risk mitigation.</p>
+                    </div>
+                    <div class="service-card-scroll bg5">
+                        <div class="service-icon-scroll"><i class="fas fa-cogs"></i></div>
+                        <h3>Operational Excellence</h3>
+                        <p>Streamlining processes and optimizing workflows. We help organizations reduce costs and improve efficiency.</p>
+                    </div>
+                    <div class="service-card-scroll bg6">
+                        <div class="service-icon-scroll"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h3>Fundraising Strategy</h3>
+                        <p>Strategic guidance for capital raising. From pitch deck refinement to investor targeting and negotiation support.</p>
+                    </div>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="service-card-scroll bg1">
+                        <div class="service-icon-scroll"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Business Strategy</h3>
+                        <p>Planning and structuring business models. We build resilient frameworks that align with market dynamics and long-term vision.</p>
+                    </div>
+                    <div class="service-card-scroll bg2">
+                        <div class="service-icon-scroll"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Startup Advisory</h3>
+                        <p>Guidance for new ventures. From validation to early traction, we help founders avoid pitfalls and scale intelligently.</p>
+                    </div>
+                    <div class="service-card-scroll bg3">
+                        <div class="service-icon-scroll"><i class="fas fa-chart-line"></i></div>
+                        <h3>Growth Planning</h3>
+                        <p>Scaling strategies for businesses. Custom growth architectures, operational leverage, and expansion roadmaps.</p>
+                    </div>
+                    <div class="service-card-scroll bg4">
+                        <div class="service-icon-scroll"><i class="fas fa-globe-americas"></i></div>
+                        <h3>Market Entry</h3>
+                        <p>Helping businesses enter new markets. Localization strategies, competitive landscaping, and risk mitigation.</p>
+                    </div>
+                    <div class="service-card-scroll bg5">
+                        <div class="service-icon-scroll"><i class="fas fa-cogs"></i></div>
+                        <h3>Operational Excellence</h3>
+                        <p>Streamlining processes and optimizing workflows. We help organizations reduce costs and improve efficiency.</p>
+                    </div>
+                    <div class="service-card-scroll bg6">
+                        <div class="service-icon-scroll"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h3>Fundraising Strategy</h3>
+                        <p>Strategic guidance for capital raising. From pitch deck refinement to investor targeting and negotiation support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OUR CLIENTS SECTION -->
+<section class="section-bg our-clients-bg" style="padding: 5rem 0;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Clients</h2>
+            <div class="section-subtitle">Trusted by innovative companies worldwide</div>
+        </div>
+        <div class="clients-grid">
+            <div class="client-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="client-icon"><i class="fas fa-building"></i></div>
+                <h4>Fortune 500</h4>
+                <p>Enterprise transformation & innovation strategy</p>
+                <div style="margin-top: 1rem; font-style: italic; color: #999; font-size: 0.85rem;">"Tomercon helped us pivot our business model successfully."</div>
+            </div>
+            <div class="client-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="client-icon"><i class="fas fa-rocket"></i></div>
+                <h4>Tech Startups</h4>
+                <p>Go-to-market & fundraising advisory</p>
+                <div style="margin-top: 1rem; font-style: italic; color: #999; font-size: 0.85rem;">"We raised $5M with their strategic guidance."</div>
+            </div>
+            <div class="client-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="client-icon"><i class="fas fa-industry"></i></div>
+                <h4>Manufacturing</h4>
+                <p>Operational efficiency & digital transformation</p>
+                <div style="margin-top: 1rem; font-style: italic; color: #999; font-size: 0.85rem;">"Reduced costs by 23% within 6 months."</div>
+            </div>
+            <div class="client-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="client-icon"><i class="fas fa-globe"></i></div>
+                <h4>Global Brands</h4>
+                <p>Market entry & expansion strategy</p>
+                <div style="margin-top: 1rem; font-style: italic; color: #999; font-size: 0.85rem;">"Successfully launched in 3 new markets."</div>
+            </div>
+        </div>
+        <div class="clients-marquee"  data-aos-delay="400">
+            <div class="marquee-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="height: 32px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.svg" alt="Uber" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" alt="Slack" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <!-- Duplicate for seamless loop -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" style="height: 32px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.svg" alt="Uber" style="height: 24px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" alt="Slack" style="height: 28px; width: auto; margin: 0 1.5rem; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STRENGTHS & ECOSYSTEM -->
+<section class="section-bg strengths-bg" style="padding: 5rem 0;">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Strengths & Ecosystem</h2>
+            <div class="section-subtitle">Execution-focused consulting that drives real impact</div>
+        </div>
+        <div class="dual-layout" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; align-items: stretch;">
+            <div class="strength-box" data-aos="fade-right" style="background: linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(15,15,15,0.6) 100%); backdrop-filter: blur(8px); border-radius: 2rem; border: 1px solid rgba(42,42,42,0.5); padding: 2rem; display: flex; flex-direction: column; height: 100%;">
+                <div style="flex: 1;">
+                    <span class="section-label"><i class="fas fa-bolt"></i> Core advantage</span>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Key Strength</h3>
+                    <div class="strength-text"><i class="fas fa-check-circle" style="margin-right: 8px;"></i> Execution-focused consulting.</div>
+                    <p style="margin-top: 1rem; color: #CCCCCC;">We don't just deliver reports — we drive operational implementation, ensuring strategies turn into revenue, efficiency, and market leadership.</p>
+                    <ul style="list-style: none; margin-top: 1.2rem;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> Real-time KPI tracking & optimization</li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> Agile methodology implementation</li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-check-circle" style="color: var(--primary);"></i> Cross-functional team alignment</li>
+                    </ul>
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(10,102,194,0.15); border: 1px solid rgba(10,102,194,0.3); border-radius: 30px; padding: 6px 16px; margin-top: 1.2rem; font-size: 0.8rem; color: var(--sky-blue);">
+                        <i class="fas fa-trophy"></i><span>87% Growth Efficiency • 150+ Ventures</span>
+                    </div>
+                </div>
+                <div style="height: 180px; overflow: hidden; border-radius: 1rem; margin-top: 1.5rem;">
+                    <img src="https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="execution" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <div class="ecosystem-box" data-aos="fade-left" style="background: linear-gradient(135deg, rgba(10,10,10,0.6) 0%, rgba(15,15,15,0.6) 100%); backdrop-filter: blur(8px); border-radius: 2rem; border: 1px solid rgba(42,42,42,0.5); padding: 2rem; display: flex; flex-direction: column; height: 100%;">
+                <div style="flex: 1;">
+                    <span class="section-label"><i class="fas fa-seedling"></i> Ecosystem impact</span>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Role in Ecosystem</h3>
+                    <p style="color: #CCCCCC;">Designs strategies for internal and external ventures. TOMERCON acts as a strategic architect shaping business units for innovation.</p>
+                    <div style="margin: 1.2rem 0; background: rgba(17,17,17,0.8); border-radius: 1rem; padding: 0.8rem 1rem; border-left: 3px solid var(--primary); color: #9AC8FF;">
+                        <i class="fas fa-sitemap"></i> <strong style="color:#6EB5FF;">Dual focus:</strong> internal venture building + external accelerator advisory
+                    </div>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-building" style="color: var(--primary);"></i> Corporate innovation labs</li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-rocket" style="color: var(--primary);"></i> Startup accelerator programs</li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-handshake" style="color: var(--primary);"></i> Strategic partnership facilitation</li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 8px;"><i class="fas fa-globe" style="color: var(--primary);"></i> Global market access</li>
+                    </ul>
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(10,102,194,0.15); border: 1px solid rgba(10,102,194,0.3); border-radius: 30px; padding: 6px 16px; margin-top: 1.2rem; font-size: 0.8rem; color: var(--sky-blue);">
+                        <i class="fas fa-globe"></i><span>Global Network • 50+ Partners</span>
+                    </div>
+                </div>
+                <div style="height: 180px; overflow: hidden; border-radius: 1rem; margin-top: 1.5rem;">
+                    <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="ecosystem" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT / CONNECT SECTION -->
+<section class="contact-cta section-bg connect-bg">
+    <div class="container" data-aos="fade-up" data-aos-duration="700">
+        <div style="text-align: center;">
+            <h2 style="color:white;">Ready to build <span style="color:#0A66C2;">strategies that work?</span></h2>
+            <p style="color:#BBBBBB; margin-top: 0.5rem;">Let's architect your next growth phase with execution-focused consulting.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info" data-aos="fade-right">
+                <h3 style="color:#0A66C2; margin-bottom:1.5rem;"><i class="fas fa-address-card"></i> Connect with us</h3>
+                <div class="contact-detail-item">
+                    <i class="fas fa-building"></i>
+                    <div class="address-line">
+                        <strong style="color:#6EB5FF;">Registered Office</strong><br>
+                        Tomercon Developers LLP<br>
+                        20/1104, Parammal House, Thalancheri Paramba,<br>
+                        Panniyankara, Kallai, Kozhikode,<br>
+                        Kerala - 673003, India
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    
+                    <a href="mailto:contact@tomercon.in" class="contact-icon-link"><i class="fas fa-envelope"></i> </a>
+                    <a href="tel:+919876543210" class="contact-icon-link"><i class="fas fa-phone-alt"></i> </a>
+                </div>
+                <div class="map-container">
+                    <iframe class="map-iframe" title="Tomercon office location" src="https://maps.google.com/maps?q=Kallai+Kozhikode+Kerala+673003&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-form" data-aos="fade-left">
+                <h3 style="color:#0A66C2; margin-bottom:1.5rem;">Send a message</h3>
+                <form id="contactForm">
+                    <div class="form-group"><input type="text" placeholder="Full Name*" required></div>
+                    <div class="form-group"><input type="email" placeholder="Email Address*" required></div>
+                    <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+                    <div class="form-group"><input type="text" placeholder="Subject"></div>
+                    <div class="form-group"><textarea rows="4" placeholder="Message*" required></textarea></div>
+                    <button type="submit" class="btn-light"><i class="fas fa-paper-plane"></i> Send inquiry</button>
+                </form>
+                <p id="contactMsg" style="margin-top: 1rem; font-size:0.9rem; color:#0A66C2; display: none;">✓ Message sent successfully (demo).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>TOMERCON CONSULTANCY</h3>
+                <p>Strategy that actually works. Execution-focused frameworks for measurable impact.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="strength.html">Strengths</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TOMERCON CONSULTANCY — <span>Designed by Tomercon Developer</span>. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({ duration: 800, once: false, mirror: true, offset: 80, easing: 'ease-out-quad' });
+
+    // Contact form handling
+    const form = document.getElementById('contactForm');
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contactMsg');
+            msg.style.display = 'block';
+            setTimeout(() => msg.style.display = 'none', 4000);
+            this.reset();
+        });
+    }
+
+    // Services auto-scroll is handled by CSS animation
+    // The services marquee scrolls automatically like the clients section
+    // Hover effects and background images are fully preserved
+</script>
+</body>
+</html>

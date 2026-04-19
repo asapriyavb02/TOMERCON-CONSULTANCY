@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About TOMERCON | Strategy That Actually Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #EAEAEA; line-height: 1.5; overflow-x: hidden; }
+        :root { --black-deep: #000000; --black-rich: #0a0a0a; --primary: #0A66C2; --primary-glow: #3B8FDF; --primary-dark: #004182; --gray-muted: #B0B0B0; --border-dim: #222222; --card-bg: #0C0C0C; --glass-bg: rgba(10, 10, 10, 0.75); --sky-blue: #6EB5FF; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        h1 { font-size: 3.8rem; line-height: 1.2; margin-bottom: 1.25rem; }
+        h2 { font-size: 2.4rem; margin-bottom: 1rem; font-weight: 700; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(10, 102, 194, 0.2); } 50% { box-shadow: 0 0 35px rgba(10, 102, 194, 0.4); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* NAVBAR - EXACT MATCH FROM HOME PAGE */
+        nav { 
+            padding: 1rem 0; 
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            border-bottom: 1px solid rgba(10, 102, 194, 0.3);
+            animation: slideInLeft 0.5s ease-out;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            letter-spacing: -0.02em;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.95rem; 
+            color: #FFFFFF; 
+            transition: all 0.3s; 
+            position: relative; 
+            cursor: pointer; 
+            padding: 5px 0; 
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .nav-links a::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 0; 
+            height: 2px; 
+            background: linear-gradient(90deg, var(--primary), var(--sky-blue));
+            background-size: 200% 100%;
+            transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { 
+            color: var(--primary-glow); 
+            text-shadow: 0 0 15px rgba(10, 102, 194, 0.8);
+        }
+
+        /* PAGE HEADER - PARALLAX SCROLL EFFECT */
+        .page-header { 
+            padding: 0; 
+            position: relative; 
+            overflow: hidden; 
+            border-bottom: 1px solid #1a2a3a; 
+            background: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1920') center center / cover no-repeat; 
+            background-attachment: fixed;
+            background-color: rgba(0, 20, 40, 0.8); 
+            background-blend-mode: overlay; 
+            min-height: 500px; 
+            height: 60vh;
+            display: flex; 
+            align-items: center;
+            isolation: isolate;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(10,102,194,0.05) 50%, transparent 70%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            z-index: 0;
+        }
+        
+        .page-header::after { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background: radial-gradient(circle at 30% 40%, rgba(10,102,194,0.18) 0%, transparent 60%); 
+            z-index: -1; 
+        }
+        
+        @media (max-width: 850px) {
+            .page-header { background-attachment: scroll; }
+        }
+        
+        .page-header-content { 
+            position: relative; 
+            z-index: 2; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 2rem 0; 
+        }
+        
+        .page-header h1 { 
+            font-size: 4.5rem; 
+            background: linear-gradient(135deg, #4B9CD3 0%, #FFFFFF 100%); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            text-shadow: 0 4px 20px rgba(10, 102, 194, 0.4); 
+            margin-bottom: 0.5rem;
+        }
+        
+        .header-badge { 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            font-weight: 700; 
+            color: #9AC8FF; 
+            background: rgba(0,0,0,0.5); 
+            backdrop-filter: blur(4px); 
+            display: inline-block; 
+            padding: 6px 16px; 
+            border-radius: 40px; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid rgba(10, 102, 194, 0.6); 
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .header-subtitle { 
+            font-size: 1.2rem; 
+            color: #F0F0F0;
+        }
+
+        .about-content-section { padding: 5rem 0; background: var(--black-rich); }
+        .about-intro { max-width: 900px; margin: 0 auto 3rem; text-align: center; }
+        .about-intro p { font-size: 1.2rem; color: #D0D0D0; }
+        
+        /* FIXED: One line highlight with no wrap */
+        .about-highlight { 
+            color: var(--sky-blue); 
+            border-left: 4px solid var(--primary); 
+            padding-left: 2rem; 
+            margin: 2.5rem auto; 
+            font-style: normal; 
+            font-weight: 500; 
+            font-size: 1.25rem; 
+            text-align: left; 
+            max-width: 900px;
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 768px) {
+            .about-highlight {
+                white-space: normal;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Additional text styling - NO BOX, just clean text */
+        .about-extra-text {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            text-align: left;
+            color: #C0C0C0;
+        }
+        
+        .about-extra-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ---------- PARTNERS SECTION ---------- */
+        .partners-section { margin: 4rem 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-tag { display: inline-block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; color: var(--primary-glow); margin-bottom: 1rem; background: rgba(10,102,194,0.1); padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(10,102,194,0.25); backdrop-filter: blur(4px); }
+        .section-title { font-size: 2.8rem; font-weight: 700; background: linear-gradient(135deg, #FFFFFF 0%, #A0C8FF 100%); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 0.75rem; }
+        .section-subtitle { color: var(--gray-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+        .partner-showcase-new {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.5rem;
+        }
+
+        .partner-card {
+            flex: 1;
+            max-width: 380px;
+            border-radius: 0;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;
+            overflow: visible;
+            box-shadow: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .partner-card:hover { transform: translateY(-6px); }
+
+        .partner-image-container {
+            width: 100%;
+            height: 380px;
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            position: relative;
+            border-radius: 5px;
+            transition: all 0.2s;
+            border: 1px solid rgba(58, 128, 255, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8);
+        }
+
+        .partner-card:hover .partner-image-container {
+            border-color: var(--primary-glow);
+            box-shadow: 0 25px 45px -12px rgba(10, 102, 194, 0.5);
+        }
+
+        .partner-details-panel {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding: 0 1.8rem;
+            background: rgba(10, 20, 35, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 0px solid transparent;
+            transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease, padding 0.4s ease;
+            color: #E0E8F5;
+            border-radius: 5px;
+            box-shadow: inset 0 0 0 1px rgba(10,102,194,0.1);
+            border-left: 1px solid rgba(58, 128, 255, 0.2);
+            border-right: 1px solid rgba(58, 128, 255, 0.2);
+            border-bottom: 1px solid rgba(58, 128, 255, 0.2);
+        }
+
+        .partner-card.details-visible .partner-details-panel {
+            max-height: 500px;
+            opacity: 1;
+            padding: 1.8rem 1.8rem 2rem 1.8rem;
+            border-top: 1px solid rgba(10,102,194,0.4);
+        }
+
+        .partner-name-large {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .partner-position {
+            color: var(--primary-glow);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            border-bottom: 1.5px solid rgba(10,102,194,0.5);
+            padding-bottom: 0.8rem;
+            display: inline-block;
+        }
+        
+        .partner-short-bio {
+            color: #C5D5E8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .partner-social-links-new {
+            display: flex;
+            gap: 15px;
+            margin-top: 0.2rem;
+        }
+        
+        .social-icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            color: #B0C8E8;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.2s;
+            font-size: 1.2rem;
+        }
+        
+        .social-icon-circle:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px -5px rgba(10,102,194,0.6);
+        }
+
+        /* 4 Detail Boxes */
+        .about-detail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem; margin: 3rem 0; }
+        .about-detail-card { 
+            background: rgba(12, 12, 12, 0.8); backdrop-filter: blur(8px); border-radius: 1.8rem; padding: 2.2rem 1.8rem; 
+            border: 1px solid rgba(42, 42, 42, 0.5); transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1); 
+            position: relative; isolation: isolate; overflow: hidden; min-height: 300px; display: flex; flex-direction: column;
+        }
+        .about-detail-card::before {
+            content: ''; position: absolute; inset: 0; background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 0.6s ease; z-index: -1;
+        }
+        .about-detail-card:nth-child(1)::before { background-image: url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .about-detail-card:nth-child(2)::before { background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .about-detail-card:nth-child(3)::before { background-image: url('https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .about-detail-card:nth-child(4)::before { background-image: url('https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .about-detail-card::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.75); opacity: 0; transition: opacity 0.6s ease; z-index: -1; }
+        .about-detail-card:hover::before { opacity: 0.35; }
+        .about-detail-card:hover::after { opacity: 1; }
+        .about-detail-card:hover { border-color: var(--primary); transform: translateY(-8px); box-shadow: 0 20px 35px -10px rgba(10, 102, 194, 0.35); }
+        .about-detail-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 1.5rem; transition: all 0.3s; position: relative; z-index: 2; }
+        .about-detail-card:hover i { color: var(--sky-blue); transform: scale(1.15); }
+        .about-detail-card h4 { color: #FFFFFF; margin-bottom: 0.75rem; font-size: 1.4rem; font-weight: 600; z-index: 2; }
+        .about-detail-card p { color: #B8C7D9; line-height: 1.6; z-index: 2; }
+
+        .about-stats-row { display: flex; justify-content: space-around; margin: 4rem 0 2.5rem; padding: 2.5rem 0; border-top: 1px solid rgba(42, 82, 122, 0.5); border-bottom: 1px solid rgba(42, 82, 122, 0.5); }
+        .about-stat .number { font-size: 3rem; font-weight: 800; background: linear-gradient(145deg, #6EB5FF, #0A66C2); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .pill-group { display: flex; gap: 15px; flex-wrap: wrap; margin: 2rem 0 1rem; justify-content: center; }
+        .pill { background: rgba(20, 30, 44, 0.7); backdrop-filter: blur(8px); border: 1px solid rgba(58, 128, 255, 0.3); padding: 10px 28px; border-radius: 60px; color: #C5E0FF; transition: all 0.3s; }
+        .pill:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer {
+            background: transparent !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(10, 102, 194, 0.3);
+            color: #FFFFFF;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .footer-brand h3 {
+            color: #0A66C2;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .footer-brand p {
+            color: #EEEEEE;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .footer-links h4 {
+            color: #FFFFFF;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.7rem; }
+
+        .footer-links a {
+            color: #FFFFFF;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-glow);
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(10, 102, 194, 0.8);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(42, 42, 42, 0.5);
+            padding-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #DDDDDD;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer-bottom span { color: var(--primary); }
+        
+        .footer-social {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+        
+        .footer-social .social-link {
+            width: 38px;
+            height: 38px;
+            font-size: 1.2rem;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            border: 1px solid rgba(58, 58, 58, 0.5);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-social .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .footer-social .social-link:hover::before { transform: scale(1); }
+
+        .footer-social .social-link:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px -5px rgba(10, 102, 194, 0.4);
+        }
+
+        @media (max-width: 850px) {
+            .container { padding: 0 24px; }
+            h1 { font-size: 2.6rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .page-header h1 { font-size: 3rem; }
+            .partner-showcase-new { flex-direction: column; align-items: center; }
+            .partner-card { max-width: 400px; width: 100%; }
+            .about-detail-grid { grid-template-columns: 1fr; }
+            .about-stats-row { flex-wrap: wrap; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-container">
+        <div class="logo">TOMERCON CONSULTANCY</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="strength.html">Strengths</a></li>
+            <li><a href="connect.html">Connect</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <div class="page-header-content" data-aos="fade-up" data-aos-duration="800">
+            <div class="header-badge">EXECUTION-FOCUSED CONSULTING</div>
+            <h1>About the Firm</h1>
+            <p class="header-subtitle">Partners in strategic execution & measurable transformation</p>
+        </div>
+    </div>
+</section>
+
+<section class="about-content-section">
+    <div class="container">
+        <div class="about-intro" data-aos="fade-left">
+            <p><strong style="color: var(--primary-glow); font-size: 1.5rem;">TOMERCON CONSULTANCY</strong> provides structured business strategies focused on execution and measurable growth.</p>
+            
+            <!-- Additional 4-5 lines without a box - clean text -->
+            <div class="about-extra-text">
+                <p>Our approach bridges the critical gap between strategic vision and operational reality, ensuring that every recommendation comes with a clear implementation roadmap. We specialize in transforming complex business challenges into actionable frameworks that drive sustainable growth.</p>
+                <p>From market entry strategies to operational excellence, our methodology emphasizes data-driven decision making and agile execution. With a client-first philosophy, we embed ourselves in your journey—serving not just as advisors but as dedicated partners committed to achieving tangible outcomes.</p>
+                <p>Whether you're a startup seeking product-market fit or an established enterprise navigating digital transformation, TOMERCON CONSULTANCY delivers the strategic clarity and execution support needed to turn ambitious goals into measurable results.</p>
+            </div>
+            
+            <div class="about-highlight">Founded on the principle that strategy must be actionable, we've guided over 150 ventures across industries.</div>
+        </div>
+        
+        <!-- PARTNERS SECTION -->
+        <div class="partners-section">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">LEADERSHIP</div>
+                <h2 class="section-title">Meet the Partners</h2>
+                <p class="section-subtitle">Guided by seasoned professionals with deep expertise in strategy, development, and execution</p>
+            </div>
+            
+            <div class="partner-showcase-new">
+                <div class="partner-card" id="partnerCard1">
+                    <div class="partner-image-container" style="background-image: url('P1.png');"></div>
+                    <div class="partner-details-panel">
+                        <div class="partner-name-large">Mohammed Salih</div>
+                        <div class="partner-position">Co-Founder & Managing Partner</div>
+                        <div class="partner-short-bio">Visionary strategist with 15+ years in transformation. Leads growth, operational excellence, and market expansion.</div>
+                        <div class="partner-social-links-new">
+                            <a href="#" class="social-icon-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="partner-card" id="partnerCard2">
+                    <div class="partner-image-container" style="background-image: url('P2.png');"></div>
+                    <div class="partner-details-panel">
+                        <div class="partner-name-large">Shameem Haldhoon</div>
+                        <div class="partner-position">Co-Founder & Operations Partner</div>
+                        <div class="partner-short-bio">Execution-focused leader with expertise in scaling operations, process optimization, and complex initiatives.</div>
+                        <div class="partner-social-links-new">
+                            <a href="#" class="social-icon-circle"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 Detail Boxes -->
+        <div class="about-detail-grid" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-detail-card"> <i class="fas fa-history"></i> <h4>Our Journey</h4> <p>Established in 2018, TOMERCON emerged from a simple observation: most strategic plans fail not because they're wrong, but because they're never properly executed.</p> </div>
+            <div class="about-detail-card"> <i class="fas fa-users"></i> <h4>Our Team</h4> <p>Our consultants bring experience from top-tier strategy firms, Fortune 500 companies, and successful startups.</p> </div>
+            <div class="about-detail-card"> <i class="fas fa-trophy"></i> <h4>Our Philosophy</h4> <p>Strategy and execution are inseparable. Every recommendation comes with an implementation roadmap.</p> </div>
+            <div class="about-detail-card"> <i class="fas fa-globe-asia"></i> <h4>Global Reach</h4> <p>With partners and clients across India, North America, Europe, and Asia-Pacific.</p> </div>
+        </div>
+
+        <div class="about-stats-row" data-aos="fade-up">
+            <div class="about-stat"> <div class="number">150+</div> <div class="label">Ventures Guided</div> </div>
+            <div class="about-stat"> <div class="number">12+</div> <div class="label">Industries Served</div> </div>
+            <div class="about-stat"> <div class="number">87%</div> <div class="label">Growth Efficiency</div> </div>
+            <div class="about-stat"> <div class="number">6+</div> <div class="label">Years of Excellence</div> </div>
+        </div>
+
+        <div class="pill-group" data-aos="fade-up" data-aos-delay="150">
+            <span class="pill"><i class="fas fa-chart-simple"></i> Data-led decisions</span>
+            <span class="pill"><i class="fas fa-rocket"></i> Execution guarantee</span>
+            <span class="pill"><i class="fas fa-handshake"></i> Client-first approach</span>
+            <span class="pill"><i class="fas fa-bolt"></i> Agility & Impact</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>TOMERCON CONSULTANCY</h3>
+                <p>Strategy that actually works. Execution-focused frameworks for measurable impact.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="strength.html">Strengths</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TOMERCON CONSULTANCY — <span>Designed by Tomercon Developer</span>. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+
+    (function() {
+        const card1 = document.getElementById('partnerCard1');
+        const card2 = document.getElementById('partnerCard2');
+        
+        card1.addEventListener('mouseenter', function() {
+            card1.classList.add('details-visible');
+            card2.classList.remove('details-visible');
+        });
+        
+        card2.addEventListener('mouseenter', function() {
+            card2.classList.add('details-visible');
+            card1.classList.remove('details-visible');
+        });
+    })();
+</script>
+</body>
+</html>

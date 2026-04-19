@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Strengths & Ecosystem | TOMERCON CONSULTANCY</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+            background-color: #050505;
+            color: #EAEAEA;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --black-deep: #000000;
+            --black-rich: #0a0a0a;
+            --primary: #0A66C2;
+            --primary-glow: #3B8FDF;
+            --primary-dark: #004182;
+            --sky-blue: #6EB5FF;
+            --gray-muted: #B0B0B0;
+            --border-dim: #222222;
+            --card-bg: #0C0C0C;
+            --glass-bg: rgba(10, 10, 10, 0.75);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(-1deg); }
+            75% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(10, 102, 194, 0.3);
+                border-color: rgba(10, 102, 194, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(10, 102, 194, 0.6);
+                border-color: rgba(10, 102, 194, 0.8);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes rotateIn {
+            from { opacity: 0; transform: rotateY(-90deg); }
+            to { opacity: 1; transform: rotateY(0); }
+        }
+
+        /* ========== FLOATING PARTICLES ========== */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-bg span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: floatSlow 20s infinite ease-in-out;
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(10, 102, 194, 0.3);
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            padding: 5px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--sky-blue));
+            background-size: 200% 100%;
+            transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-glow);
+            text-shadow: 0 0 15px rgba(10, 102, 194, 0.8);
+        }
+
+        /* ========== PAGE HEADER WITH FIXED BACKGROUND ========== */
+        .page-header {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #1a2a3a;
+            isolation: isolate;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            background: url('https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=1600') center center / cover no-repeat fixed;
+            background-color: rgba(0, 10, 25, 0.85);
+            background-blend-mode: overlay;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(10,102,194,0.08) 50%, transparent 70%);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            z-index: 0;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 40% 50%, rgba(10,102,194,0.2) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 4.2rem;
+            background: linear-gradient(135deg, #6EB5FF 0%, #FFFFFF 100%);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 30px rgba(10, 102, 194, 0.5);
+            margin-bottom: 1rem;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        .header-badge {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 700;
+            color: #9AC8FF;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 40px;
+            margin-bottom: 1.8rem;
+            border: 1px solid rgba(10, 102, 194, 0.5);
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: #D0D0D0;
+            font-weight: 400;
+        }
+
+        /* ========== STRENGTHS SECTION ========== */
+        .strengths-modern {
+            padding: 5rem 0;
+            background: #050505;
+            position: relative;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-intro h2 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #6EB5FF 0%, #FFFFFF 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro p {
+            color: #B0B0B0;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Main feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* ========== NEW HOVER BACKGROUND IMAGES FOR CARDS ========== */
+        .feature-card {
+            background: linear-gradient(135deg, #0A0A0A 0%, #0F0F0F 100%);
+            border-radius: 2rem;
+            border: 1px solid #2A2A2A;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* pseudo-element for hover background image (covers entire card) */
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: -1;
+            border-radius: 2rem;
+            pointer-events: none;
+        }
+
+        /* First card hover background */
+        .feature-card:first-child::after {
+            background-image: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        /* Second card hover background */
+        .feature-card:last-child::after {
+            background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        }
+
+        .feature-card:hover::after {
+            opacity: 0.25;
+        }
+
+        /* ensure content stays above background and remains readable */
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* subtle overlay darkening on hover for better text contrast */
+        .feature-card:hover {
+            background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+            border-color: var(--primary);
+            box-shadow: 0 30px 50px -20px rgba(10, 102, 194, 0.4);
+            transform: translateY(-10px);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--sky-blue), var(--primary));
+            background-size: 200% 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+            z-index: 3;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: var(--sky-blue);
+            text-shadow: 0 0 30px rgba(110, 181, 255, 0.5);
+        }
+
+        .feature-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .feature-card .highlight {
+            font-size: 1.2rem;
+            color: var(--primary-glow);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary);
+        }
+
+        .feature-card p {
+            color: #CCCCCC;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Flip Cards Grid */
+        .flip-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .flip-card {
+            background: transparent;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid #2A2A2A;
+            background: linear-gradient(135deg, #0A0A0A 0%, #0F0F0F 100%);
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            transform: rotateY(180deg);
+            border-color: var(--primary);
+        }
+
+        .flip-card-front i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-front h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #FFFFFF;
+        }
+
+        .flip-card-front p {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .flip-card-back h4 {
+            color: #FFFFFF;
+            margin-bottom: 0.8rem;
+        }
+
+        .flip-card-back p {
+            color: #E0E0E0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .flip-card-back i {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Image Gallery Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            height: 250px;
+            border: 1px solid #2A2A2A;
+            transition: all 0.4s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -10px rgba(10, 102, 194, 0.3);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .image-overlay h4 {
+            color: var(--sky-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: transparent !important; 
+            backdrop-filter: none; 
+            -webkit-backdrop-filter: none; 
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(10, 102, 194, 0.3);
+            color: #FFFFFF;
+            position: relative;
+            z-index: 2;
+            margin-top: 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .footer-brand h3 {
+            color: #0A66C2;
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand p {
+            color: #EEEEEE;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links h4 {
+            color: #FFFFFF;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: #FFFFFF;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-block;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-glow);
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(10, 102, 194, 0.8);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(42, 42, 42, 0.5);
+            padding-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #DDDDDD;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-bottom span {
+            color: var(--primary);
+        }
+        
+        .footer-social {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+        
+        .footer-social .social-link {
+            width: 38px;
+            height: 38px;
+            font-size: 1.2rem;
+        }
+
+        .social-link {
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(8px);
+            width: 44px;
+            height: 44px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            border: 1px solid rgba(58, 58, 58, 0.5);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .social-link:hover::before {
+            transform: scale(1);
+        }
+
+        .social-link:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px -5px rgba(10, 102, 194, 0.4);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 968px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .flip-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .page-header {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .container { padding: 0 24px; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 3rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 640px) {
+            .flip-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-header h1 { font-size: 2.2rem; }
+            .section-intro h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Floating Background Particles -->
+<div class="floating-bg">
+    <span style="top: 5%; left: 8%; animation-delay: 0s;"></span>
+    <span style="top: 15%; left: 20%; animation-delay: 2s;"></span>
+    <span style="top: 25%; left: 80%; animation-delay: 4s;"></span>
+    <span style="top: 35%; left: 12%; animation-delay: 1s;"></span>
+    <span style="top: 45%; left: 88%; animation-delay: 3s;"></span>
+    <span style="top: 55%; left: 18%; animation-delay: 5s;"></span>
+    <span style="top: 65%; left: 78%; animation-delay: 2.5s;"></span>
+    <span style="top: 75%; left: 45%; animation-delay: 3.5s;"></span>
+    <span style="top: 85%; left: 35%; animation-delay: 1.5s;"></span>
+    <span style="top: 95%; left: 65%; animation-delay: 4.5s;"></span>
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="container nav-container">
+        <div class="logo">TOMERCON CONSULTANCY</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="strength.html" class="active">Strengths</a></li>
+            <li><a href="connect.html">Connect</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header with FIXED Background -->
+<section class="page-header">
+    <div class="container">
+        <div class="page-header-content" data-aos="fade-up">
+            <div class="header-badge">OUR ADVANTAGE</div>
+            <h1>Core Strengths & Ecosystem</h1>
+            <p class="header-subtitle">Execution-focused consulting that drives real impact and measurable transformation</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Strengths Section -->
+<section class="strengths-modern">
+    <div class="container">
+        <div class="section-intro" data-aos="fade-up">
+            <h2>What Sets Us Apart</h2>
+            <p>Discover how our unique approach combines strategic vision with flawless execution to deliver exceptional results</p>
+        </div>
+
+        <!-- Main Feature Cards (both now have hover background images) -->
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="card-icon">
+                    <!-- icon placeholder (no change) -->
+                </div>
+                <h3>KEY STRENGTH</h3>
+                <div class="highlight">Execution-focused consulting.</div>
+                <p>We don't just deliver reports — we drive operational implementation, ensuring strategies turn into revenue, efficiency, and market leadership. Our hands-on approach means we're with you from strategy to execution, measuring progress at every milestone.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-left" data-aos-delay="200">
+                <div class="card-icon">
+                    <!-- icon placeholder (no change) -->
+                </div>
+                <h3>ROLE IN ECOSYSTEM</h3>
+                <div class="highlight">Designs strategies for internal and external ventures.</div>
+                <p>TOMERCON CONSULTANCY acts as a strategic architect: shaping internal business units for corporate innovation while empowering external startups to capture market opportunities and scale intelligently.</p>
+            </div>
+        </div>
+
+        <!-- Flip Cards Grid -->
+        <div class="flip-grid">
+            <div class="flip-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>KPI Tracking</h4>
+                        <p>Real-time optimization</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Advanced Analytics</h4>
+                        <p>Data-driven decision making with real-time dashboard monitoring</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Agile Methodology</h4>
+                        <p>Flexible implementation</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>Scrum & Kanban</h4>
+                        <p>Iterative development with continuous feedback loops</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-users"></i>
+                        <h4>Team Alignment</h4>
+                        <p>Cross-functional synergy</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-sitemap"></i>
+                        <h4>Unified Vision</h4>
+                        <p>Breaking silos for seamless collaboration across departments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Risk Mitigation</h4>
+                        <p>Proactive planning</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <i class="fas fa-chess-queen"></i>
+                        <h4>Strategic Foresight</h4>
+                        <p>Identifying and neutralizing threats before they impact growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>TOMERCON CONSULTANCY</h3>
+                <p>Strategy that actually works. Execution-focused frameworks for measurable impact.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="strength.html">Strengths</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TOMERCON CONSULTANCY — <span>Designed by Tomercon Developer</span>. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true,
+        offset: 100,
+        easing: 'ease-out-quad'
+    });
+    // No parallax JavaScript - background stays fixed as per original
+</script>
+</body>
+</html>

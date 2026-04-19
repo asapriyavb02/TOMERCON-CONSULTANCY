@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Services | TOMERCON CONSULTANCY</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* ========== GLOBAL STYLES (same as index) ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #EAEAEA; line-height: 1.5; overflow-x: hidden; }
+        :root { --black-deep: #000000; --black-rich: #0a0a0a; --primary: #0A66C2; --primary-glow: #3B8FDF; --primary-dark: #004182; --gray-muted: #B0B0B0; --border-dim: #222222; --card-bg: #0C0C0C; --glass-bg: rgba(10, 10, 10, 0.75); --sky-blue: #6EB5FF; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        h1 { font-size: 3.8rem; line-height: 1.2; margin-bottom: 1.25rem; }
+        h2 { font-size: 2.4rem; margin-bottom: 1rem; font-weight: 700; }
+
+        /* ========== ANIMATIONS (same as index) ========== */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(10, 102, 194, 0.3); } 50% { box-shadow: 0 0 40px rgba(10, 102, 194, 0.6); } }
+
+        /* ========== NAVIGATION (exact copy from index with slideInLeft animation) ========== */
+        nav {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(10, 102, 194, 0.3);
+            animation: slideInLeft 0.5s ease-out;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 1.6rem; font-weight: 800; background: linear-gradient(125deg, #0A66C2, #9AC8FF); background-clip: text; -webkit-background-clip: text; color: transparent; letter-spacing: -0.02em; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+        .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+        .nav-links a { text-decoration: none; font-weight: 500; font-size: 0.95rem; color: #FFFFFF; transition: all 0.3s; position: relative; padding: 5px 0; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--sky-blue)); background-size: 200% 100%; transition: width 0.4s cubic-bezier(0.2, 0.9, 0.4, 1); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-glow); text-shadow: 0 0 15px rgba(10, 102, 194, 0.8); }
+
+        /* ========== PAGE HEADER (FIXED - IMAGE FITS PERFECTLY) ========== */
+        .page-header {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #1a2a3a;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            /* Fixed background with proper sizing */
+            background: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=1600') center center / cover no-repeat;
+            background-attachment: fixed;
+            background-color: rgba(0, 20, 40, 0.8);
+            background-blend-mode: overlay;
+            isolation: isolate;
+            width: 100%;
+            margin: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        /* Mobile fix for fixed background */
+        @media (max-width: 850px) {
+            .page-header { background-attachment: scroll; }
+        }
+        
+        .page-header::after { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background: radial-gradient(circle at 30% 40%, rgba(10,102,194,0.25) 0%, transparent 70%); 
+            z-index: 0; 
+        }
+        
+        .page-header-content { 
+            position: relative; 
+            z-index: 2; 
+            text-align: center; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        
+        .page-header h1 { 
+            font-size: 4rem; 
+            background: linear-gradient(135deg, #6EB5FF 0%, #FFFFFF 100%); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            text-shadow: 0 4px 20px rgba(10, 102, 194, 0.4); 
+            margin-bottom: 0.5rem; 
+        }
+        
+        .header-badge { 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-weight: 700; 
+            color: #9AC8FF; 
+            background: rgba(0,0,0,0.5); 
+            backdrop-filter: blur(4px); 
+            display: inline-block; 
+            padding: 8px 20px; 
+            border-radius: 40px; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid rgba(10, 102, 194, 0.6); 
+            animation: pulse-glow 2s infinite; 
+        }
+        
+        .header-subtitle { 
+            color: #D0D0D0; 
+            font-size: 1.3rem; 
+        }
+
+        /* ========== SERVICES GRID ========== */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
+            padding: 5rem 0; 
+        }
+        
+        .service-card { 
+            background: rgba(11, 11, 11, 0.8); 
+            backdrop-filter: blur(8px); 
+            border-radius: 1.5rem; 
+            padding: 2rem 1.8rem; 
+            border: 1px solid rgba(42, 42, 42, 0.5); 
+            position: relative; 
+            overflow: hidden; 
+            min-height: 340px; 
+            display: flex; 
+            flex-direction: column; 
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1); 
+        }
+        
+        .service-card::before { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+            z-index: 0; 
+        }
+        
+        .service-card:nth-child(1)::before { background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card:nth-child(2)::before { background-image: url('https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card:nth-child(3)::before { background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card:nth-child(4)::before { background-image: url('https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card:nth-child(5)::before { background-image: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        .service-card:nth-child(6)::before { background-image: url('https://images.pexels.com/photos/3184299/pexels-photo-3184299.jpeg?auto=compress&cs=tinysrgb&w=600'); }
+        
+        .service-card:hover::before { opacity: 0.25; }
+        .service-card:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            border-color: var(--primary); 
+            background: rgba(15, 15, 15, 0.9); 
+            box-shadow: 0 30px 40px -20px rgba(10, 102, 194, 0.4); 
+        }
+        
+        .service-icon { 
+            font-size: 2.5rem; 
+            color: var(--primary); 
+            margin-bottom: 1.5rem; 
+            position: relative; 
+            z-index: 1; 
+            transition: all 0.4s ease; 
+        }
+        
+        .service-card:hover .service-icon { 
+            transform: scale(1.15); 
+            color: var(--sky-blue); 
+            text-shadow: 0 0 20px rgba(110, 181, 255, 0.5); 
+        }
+        
+        .service-card h3, .service-card p { 
+            position: relative; 
+            z-index: 1; 
+        }
+        
+        .service-card h3 { 
+            margin-bottom: 0.8rem; 
+            font-size: 1.5rem; 
+        }
+        
+        .service-card p { 
+            color: #CCCCCC; 
+            line-height: 1.6; 
+        }
+
+        /* ========== FOOTER (exact copy from index) ========== */
+        footer {
+            background: transparent !important; 
+            backdrop-filter: none; 
+            -webkit-backdrop-filter: none; 
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(10, 102, 194, 0.3);
+            color: #FFFFFF;
+            position: relative;
+            z-index: 2;
+            margin-top: 0;
+        }
+        
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.8fr 1fr 1.2fr; 
+            gap: 2.5rem; 
+            margin-bottom: 2.5rem; 
+            text-align: left; 
+        }
+        
+        .footer-brand h3 { 
+            color: #0A66C2; 
+            font-size: 1.8rem; 
+            margin-bottom: 0.75rem; 
+            background: linear-gradient(125deg, #0A66C2, #9AC8FF); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); 
+        }
+        
+        .footer-brand p { 
+            color: #EEEEEE; 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); 
+            margin-bottom: 1.2rem; 
+        }
+        
+        .footer-links h4 { 
+            color: #FFFFFF; 
+            margin-bottom: 1.2rem; 
+            font-size: 1.1rem; 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); 
+        }
+        
+        .footer-links ul { 
+            list-style: none; 
+        }
+        
+        .footer-links li { 
+            margin-bottom: 0.7rem; 
+        }
+        
+        .footer-links a { 
+            color: #FFFFFF; 
+            font-weight: 500; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            transition: all 0.3s; 
+            display: inline-block; 
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); 
+        }
+        
+        .footer-links a:hover { 
+            color: var(--primary-glow); 
+            transform: translateX(5px); 
+            text-shadow: 0 0 10px rgba(10, 102, 194, 0.8); 
+        }
+        
+        .footer-bottom { 
+            text-align: center; 
+            border-top: 1px solid rgba(42, 42, 42, 0.5); 
+            padding-top: 1.8rem; 
+            font-size: 0.85rem; 
+            color: #DDDDDD; 
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); 
+        }
+        
+        .footer-bottom span { 
+            color: var(--primary); 
+        }
+        
+        .footer-social { 
+            margin-top: 1.5rem; 
+            display: flex; 
+            gap: 1rem; 
+            justify-content: flex-start; 
+        }
+        
+        .social-link { 
+            background: rgba(26, 26, 26, 0.5); 
+            backdrop-filter: blur(8px); 
+            width: 44px; 
+            height: 44px; 
+            border-radius: 30px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: var(--primary); 
+            font-size: 1.4rem; 
+            border: 1px solid rgba(58, 58, 58, 0.5); 
+            transition: all 0.3s; 
+            text-decoration: none; 
+        }
+        
+        .social-link:hover { 
+            color: white; 
+            transform: translateY(-5px); 
+            background: var(--primary); 
+            border-color: var(--primary); 
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 850px) {
+            .container { padding: 0 24px; }
+            h1 { font-size: 2.6rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .page-header h1 { font-size: 2.8rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION (EXACT COPY FROM INDEX WITH SLIDE-IN ANIMATION) ========== -->
+<nav>
+    <div class="container nav-container">
+        <div class="logo">TOMERCON CONSULTANCY</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="strength.html">Strengths</a></li>
+            <li><a href="connect.html">Connect</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ========== PAGE HEADER WITH FIXED BACKGROUND (IMAGE NOW FITS PERFECTLY) ========== -->
+<section class="page-header">
+    <div class="container">
+        <div class="page-header-content" data-aos="fade-up">
+            <div class="header-badge">WHAT WE OFFER</div>
+            <h1>Core Services</h1>
+            <p class="header-subtitle">Precision consulting for every stage of your journey</p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SERVICES GRID ========== -->
+<section>
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="service-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>Business Strategy</h3>
+                <p>Planning and structuring business models. We build resilient frameworks that align with market dynamics and long-term vision.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Startup Advisory</h3>
+                <p>Guidance for new ventures. From validation to early traction, we help founders avoid pitfalls and scale intelligently.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Growth Planning</h3>
+                <p>Scaling strategies for businesses. Custom growth architectures, operational leverage, and expansion roadmaps.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>Market Entry</h3>
+                <p>Helping businesses enter new markets. Localization strategies, competitive landscaping, and risk mitigation.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Operational Excellence</h3>
+                <p>Streamlining processes and optimizing workflows. We help organizations reduce costs and improve efficiency.</p>
+            </div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="service-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Fundraising Strategy</h3>
+                <p>Strategic guidance for capital raising. From pitch deck refinement to investor targeting and negotiation support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER (EXACT COPY FROM INDEX) ========== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>TOMERCON CONSULTANCY</h3>
+                <p>Strategy that actually works. Execution-focused frameworks for measurable impact.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="strength.html">Strengths</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TOMERCON CONSULTANCY — <span>Designed by Tomercon Developer</span>. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-quad' });
+</script>
+</body>
+</html>
