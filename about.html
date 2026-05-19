@@ -546,6 +546,12 @@
             .container { padding: 0 24px; }
             h1 { font-size: 2.6rem; }
             
+            /* Prevent any horizontal overflow */
+            body, html {
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+            
             /* Mobile Navigation */
             .menu-toggle {
                 display: block;
@@ -591,13 +597,57 @@
                 font-size: 1.1rem;
             }
             
-            .page-header h1 { font-size: 3rem; }
+            .page-header h1 { 
+                font-size: 2.5rem; 
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .page-header-content {
+                max-width: 100%;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .header-badge {
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            
             .partner-showcase-new { flex-direction: column; align-items: center; }
             .partner-card { max-width: 400px; width: 100%; }
             .about-detail-grid { grid-template-columns: 1fr; }
             .about-stats-row { flex-wrap: wrap; gap: 2rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .about-stat .number { min-width: 100px; font-size: 2.5rem; }
+            
+            /* Ensure about-intro text doesn't overflow */
+            .about-intro {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                max-width: 100%;
+            }
+            
+            .about-intro p {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .about-extra-text {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                max-width: 100%;
+            }
+            
+            .about-extra-text p {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .section-title {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
         }
     </style>
 </head>
