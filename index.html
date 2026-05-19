@@ -260,13 +260,13 @@
         /* ========== TRANSPARENT GLASS NAVBAR ========== */
         nav {
             padding: 1rem 0;
-            background: rgba(10, 10, 10, 0.85) !important;  /* Changed from rgba(0, 0, 0, 0.3) */
+            background: rgba(10, 10, 10, 0.85) !important;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(10, 102, 194, 0.3);  /* Slightly more visible border */
+            border-bottom: 1px solid rgba(10, 102, 194, 0.3);
             animation: slideInLeft 0.5s ease-out;
         }
 
@@ -287,6 +287,23 @@
             letter-spacing: -0.02em;
             position: relative;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Hamburger Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.3s;
+            z-index: 101;
+        }
+
+        .menu-toggle:hover {
+            color: var(--primary-glow);
         }
 
         .nav-links {
@@ -329,45 +346,40 @@
         }
 
         /* ========== HERO SECTION ========== */
-        /* ========== HERO SECTION - PARALLAX FIXED ========== */
-.hero {
-    padding: 3.5rem 0 4rem;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid #1a2a3a;
-    background: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600') center center / cover no-repeat;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 20, 40, 0.8);
-    isolation: isolate;
-    /* ADD THIS - Makes background fixed */
-    background-attachment: fixed;
-    background-position: center center;
-}
+        .hero {
+            padding: 3.5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #1a2a3a;
+            background: url('https://images.pexels.com/photos/3184419/pexels-photo-3184419.jpeg?auto=compress&cs=tinysrgb&w=1600') center center / cover no-repeat;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 20, 40, 0.8);
+            isolation: isolate;
+            background-attachment: fixed;
+            background-position: center center;
+        }
 
-/* For mobile devices - fixed background can be problematic */
-@media (max-width: 850px) {
-    .hero {
-        background-attachment: scroll;
-    }
-}
+        @media (max-width: 850px) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
 
-/* Also update all section-bg classes for consistent parallax effect if desired */
-.section-bg {
-    position: relative;
-    isolation: isolate;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* ADD THIS - Makes all section backgrounds fixed */
-    background-blend-mode: normal;
-    background-color: rgba(0, 0, 0, 0.85);
-}
+        .section-bg {
+            position: relative;
+            isolation: isolate;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: normal;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
 
-/* Mobile fix for all section backgrounds */
-@media (max-width: 850px) {
-    .section-bg {
-        background-attachment: fixed;
-    }
-}
+        @media (max-width: 850px) {
+            .section-bg {
+                background-attachment: fixed;
+            }
+        }
 
         .hero::before {
             content: '';
@@ -612,7 +624,6 @@
             vertical-align: top;
         }
 
-        /* Background images on hover */
         .service-card-scroll::before {
             content: '';
             position: absolute;
@@ -635,7 +646,6 @@
             box-shadow: 0 30px 40px -20px rgba(10, 102, 194, 0.4);
         }
 
-        /* Individual background images - using classes for each card */
         .service-card-scroll.bg1::before { background-image: url('https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600'); }
         .service-card-scroll.bg2::before { background-image: url('https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600'); }
         .service-card-scroll.bg3::before { background-image: url('https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600'); }
@@ -1123,14 +1133,14 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
             position: relative;
             z-index: 2;
         }
 
         .footer-brand p {
             color: #EEEEEE;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
             position: relative;
             z-index: 2;
         }
@@ -1139,7 +1149,7 @@
             color: #FFFFFF;
             margin-bottom: 1.2rem;
             font-size: 1.1rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9); /* Stronger text shadow for readability */
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
             position: relative;
             z-index: 2;
         }
@@ -1159,7 +1169,7 @@
             font-size: 0.95rem;
             transition: all 0.3s;
             display: inline-block;
-           text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Stronger text shadow for readability */
+           text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
             position: relative;
             z-index: 2;
         }
@@ -1247,11 +1257,70 @@
         @media (max-width: 850px) {
             .container { padding: 0 24px; }
             h1 { font-size: 2.6rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
+            
+            /* Mobile Navigation */
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                border-radius: 0 0 1.5rem 1.5rem;
+                border: 1px solid rgba(10, 102, 194, 0.3);
+                border-top: none;
+                z-index: 99;
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+            
             .hero-grid { flex-direction: column; text-align: center; }
             .hero-stats { justify-content: center; }
             .company-info-grid, .clients-grid, .footer-grid { grid-template-columns: 1fr; }
-            .dual-layout { flex-direction: column; }
+            
+            /* Strengths section stacking - MODIFIED TO STACK VERTICALLY */
+            .dual-layout {
+                flex-direction: column;
+            }
+            .dual-layout .strength-box,
+            .dual-layout .ecosystem-box {
+                flex: 1 1 auto;
+                width: 100%;
+            }
+            /* Ensure the grid inside the section also stacks */
+            .dual-layout[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+            
             .contact-grid { flex-direction: column; }
             .hero-content h1 { font-size: 2.8rem; }
             .section-bg { background-attachment: fixed; }
@@ -1279,7 +1348,10 @@
 <nav>
     <div class="container nav-container">
         <div class="logo">TOMERCON CONSULTANCY</div>
-        <ul class="nav-links">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
@@ -1550,10 +1622,10 @@
                     <i class="fas fa-building"></i>
                     <div class="address-line">
                         <strong style="color:#6EB5FF;">Registered Office</strong><br>
-                        Tomercon Developers LLP<br>
-                        20/1104, Parammal House, Thalancheri Paramba,<br>
-                        Panniyankara, Kallai, Kozhikode,<br>
-                        Kerala - 673003, India
+                        3rd Floor, Aleema square,<br>
+                        Beypore - Kozhikode Rd, <br>
+                        Kannanchery, Kozhikode, <br>
+                        Kerala 673003
                     </div>
                 </div>
                 
@@ -1561,8 +1633,8 @@
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:contact@tomercon.in" class="social-link"><i class="fas fa-envelope"></i> </a>
-                    <a href="tel:+919876543210" class="social-link"><i class="fas fa-phone-alt"></i> </a>
+                    <a href="tomercondevelopers@gmail.com" class="social-link"><i class="fas fa-envelope"></i> </a>
+                    <a href="tel:+919745529558" class="social-link"><i class="fas fa-phone-alt"></i> </a>
                 </div>
                 <div class="map-container">
                     <iframe class="map-iframe" title="Tomercon office location" src="https://maps.google.com/maps?q=Kallai+Kozhikode+Kerala+673003&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
@@ -1627,6 +1699,45 @@
     // Initialize AOS
     AOS.init({ duration: 800, once: false, mirror: true, offset: 80, easing: 'ease-out-quad' });
 
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking a link (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
     // Contact form handling
     const form = document.getElementById('contactForm');
     if(form) {
@@ -1638,10 +1749,6 @@
             this.reset();
         });
     }
-
-    // Services auto-scroll is handled by CSS animation
-    // The services marquee scrolls automatically like the clients section
-    // Hover effects and background images are fully preserved
 </script>
 </body>
 </html>
